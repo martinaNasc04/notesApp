@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import '../styles/Form.css'
 
 // Esse componente é responsável por renderizar um formulário de login ou registro
 // dependendo do método passado como prop. Ele também lida com o envio do formulário,
@@ -11,12 +12,12 @@ function Form({ route, method }) {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
 
-    const name = method === "login" ? "Login" : "Register";
+    const name = method === "login" ? "Login" : "Cadastrar";
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
 
-        // Tentar logar ou registrar o usuário
+        // Tentar logar ou cadastrar o usuário
         try {
             const res = await api.post(route, { username, password })
             if (method === 'login') {
@@ -29,6 +30,7 @@ function Form({ route, method }) {
         }
         catch (error) {
             alert(error)
+            console.log(error)
         } finally {
             setLoading(false)
         }
@@ -53,8 +55,10 @@ function Form({ route, method }) {
             placeholder="Password"
         />
 
-        <button className="form-" type="submit">
+        <button className="form-button" type="submit">
             {name}
         </button>
     </form>
 }
+
+export default Form;
