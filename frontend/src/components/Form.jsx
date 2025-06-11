@@ -44,7 +44,7 @@ function Form({ route, method }) {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
+            placeholder="Usuário"
         />
 
         <input
@@ -52,7 +52,7 @@ function Form({ route, method }) {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
+            placeholder="Senha"
         />
 
         <button className="form-button" type="submit">
