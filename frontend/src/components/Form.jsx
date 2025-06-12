@@ -62,6 +62,8 @@ function Form({ route, method }) {
             {name}
         </button>
     </form>
+
+    
 }
 
 export default Form;
