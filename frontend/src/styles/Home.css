@@ -70,7 +70,6 @@ form input[type="submit"]:hover {
 /* Botão logout */
 .logout {
     background-color: #f44336;
-    /* Red */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -81,5 +80,4 @@ form input[type="submit"]:hover {
 
 .logout:hover {
     background-color: #d32f2f;
-    /* Darker red on hover */
 }

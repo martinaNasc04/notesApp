@@ -37,6 +37,14 @@ function Form({ route, method }) {
         }
     }
 
+    const registerPage = () => {
+        navigate('/register')
+    }
+
+    const loginPage = () => {
+        navigate('/login')
+    }
+
     return <form onSubmit={handleSubmit}>
         <h1>{name}</h1>
 
@@ -61,9 +69,18 @@ function Form({ route, method }) {
         <button className="form-button" type="submit">
             {name}
         </button>
+
+        {method === "login" && (
+            <p>Não possui uma conta? Clique aqui para <a className='type-link' onClick={registerPage}>cadastrar</a></p>
+        )}
+
+        {method === "register" && (
+            <p>Já possui uma conta? Clique aqui para <a className="type-link" onClick={loginPage}>entrar</a></p>
+        )}
+
     </form>
 
-    
+
 }
 
 export default Form;
