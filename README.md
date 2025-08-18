@@ -3,7 +3,7 @@ Um aplicativo web para guardar notas, feito com Django(backend) e React (fronten
 
 ## Como rodar
 1. Clone o repositório e entre nas pastas 'backend' e 'frontend' no terminal
-2. No backend execute o comando `pip install requirements.txt`, para instalar os pacotes, e em seguida `python manage.py runserver`.
+2. No backend, crie um ambiente virtual e execute o comando `pip install requirements.txt`, para instalar os pacotes, e em seguida `python manage.py migrate` para criar as tabelas no banco de dados e `python manage.py runserver` para rodar o servidor.
 3. No frontend execute os comandos `npm install` e em seguida `npm run dev`.
 4. Acesse o link: http://localhost:5173.
 
