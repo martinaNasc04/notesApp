@@ -46,7 +46,9 @@ function Form({ route, method }) {
     }
 
     return <div className="container">
+        
         <form className="form-container" onSubmit={handleSubmit}>
+            <h1 className="form-title">Note App</h1>
             <h1>{name}</h1>
 
             <div className="input-group">

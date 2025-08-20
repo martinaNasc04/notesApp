@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from '../api'
 import Note from '../components/Note'
 import '../styles/Home.css'
+import Edit from './Edit';
 
 function Home() {
     const [notes, setNotes] = useState([])
@@ -33,6 +34,8 @@ function Home() {
             }).catch((error) => alert(error))
     }
 
+
+
     // Criando uma nova nota
     const createNote = (e) => {
         e.preventDefault()
@@ -46,6 +49,12 @@ function Home() {
                 else alert('Erro ao criar a nota!')
                 getNotes()
             }).catch((error) => alert(error))
+    }
+
+    // Função para abrir o modal de edição
+    const editPage = (note) => {
+        // Navega para a rota de edição com os dados da nota
+        navigate(`/edit/${note.id}`, { state: { note } });
     }
 
     //logout
@@ -63,7 +72,12 @@ function Home() {
             </header>
             <section className="notes-section">
                 <h1>Suas Notas</h1>
-                {notes.map((note) => <Note note={note} onDelete={deleteNote} key={note.id} />)}
+
+                <div className='notes'>
+                    {notes.length === 0 ? <p> Não há notas...&#128533;</p> :
+                        notes.map((note) => <Note note={note} onDelete={deleteNote} editPage={editPage} key={note.id} />)}
+                </div>
+
             </section>
 
             <section className="form-section">
